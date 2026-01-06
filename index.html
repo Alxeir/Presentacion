@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación Cortina</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@1,6..96&family=Cinzel&family=Grenze+Gotisch:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="curtain-container" id="curtain">
+        <!-- NIEVE DENTRO del contenedor -->
+        <div class="snow"></div>
+        <div class="snow2"></div>
+        
+        <!-- Checkbox oculto -->
+        <input type="checkbox" id="toggle" checked>
+        
+        <!-- Paneles de cortina -->
+        <div class="curtain-panel left"></div>
+        <div class="curtain-panel right"></div>
+        
+        <!-- Título y botón -->
+        <div class="title-overlay">
+            <h1>PRESENTACIÓN</h1>
+            <button id="demoBtn">Presiona Aquí</button>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="content">
+            <iframe src="contenido.html" frameborder="0"></iframe>
+        </div>
+    </div>
+    <script src="JS/cortina.js"></script>
+    <script src="JS/scroll.js"></script>
+</body>
+</html>

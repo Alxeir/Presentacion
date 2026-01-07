@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     let autoPlayInterval;
     
-    // ✅ Auto-play cada 4 segundos
+    //Auto-play cada 4 segundos
     function startAutoPlay() {
         autoPlayInterval = setInterval(nextSlide, 4000);
     }
@@ -35,14 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     }
     
-    // ✅ Click en imagen → link
+    //Click en imagen → link
     slides.forEach(slide => {
         slide.addEventListener('click', () => {
             window.open(slide.dataset.link, '_blank');
         });
     });
     
-    // Event listeners
+    //Event listeners
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
     
@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Hover pause
+    //Hover pause
     const container = document.querySelector('.carousel-container');
     container.addEventListener('mouseenter', stopAutoPlay);
     container.addEventListener('mouseleave', startAutoPlay);
     
-    // Inicia autoplay
+    //Inicia autoplay
     startAutoPlay();
 });

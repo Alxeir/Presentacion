@@ -24,6 +24,7 @@
         <li><a href="#gustos" class="nav-btn">Gustos</a></li>
         <li><a href="#videojuegos" class="nav-btn">Videojuegos</a></li>
         <li><a href="#redes" class="nav-btn">Redes sociales</a></li>
+        <li><a href="#proyectos" class="nav-btn">Proyectos</a></li>
     </ul>
 </nav>
 
@@ -132,10 +133,10 @@
         </section>
     
      <section class="Redes" id="redes">
-    <h2 class="Titulos_seccion">Mis Redes Sociales</h2>
+    <h2 class="Titulos_seccion">Redes Sociales</h2>
     
     <div class="carousel-container">
-        <!-- Slides -->
+        
         <div class="carousel-track">
             <div class="carousel-slide" data-link="https://steamcommunity.com/id/Alxeir/">
                 <img src="Images\Steam.png" alt="Steam">
@@ -166,11 +167,11 @@
             </div>
         </div>
         
-        <!-- Flechas -->
+        
         <button class="carousel-btn prev" aria-label="Anterior">❮</button>
         <button class="carousel-btn next" aria-label="Siguiente">❯</button>
         
-        <!-- Indicadores -->
+        
         <div class="carousel-dots">
             <span class="dot active" data-slide="0"></span>
             <span class="dot" data-slide="1"></span>
@@ -180,12 +181,36 @@
     </div>
 </section>
 
+       <section class="proyectos" id="proyectos">
+        <h2 class="Titulos_seccion">Proyectos</h2>
+        <div class="seccion-doble">
+            <div class="gato_chambeador">
+                <img src="Images\Gato_Chambeador.png" alt="gato_chambeador">
+            </div>
+            <div class="leyenda">
+                <p>Tengo Experiencia como programador en lenguajes como: C, Java, C#, SQL, Python, Visual Basic y Desarrollo Web (HTML, CSS y Javascript) <br> <br>
+                   He trabajado tanto en proyectos universitarios (Maquina Expendedora en C, aplicaciones Android en B4A, GUI Apps en Java y API REST en Desarrollo Web) 
+                   como personales (esta página web de presentación) <br><br>
+                   Si les interesa, pueden observar mis proyectos presionando el siguiente botón:
+                </p>
+            <button class="boton_git" onclick="window.open('https://github.com/Alxeir?tab=repositories')">Repositorio</button>
+            </div>
+            <div class="gato_chambeador">
+                <img src="Images\Cat_typing.gif" alt="gato_chambeador">
+            </div>
+        </div>
+       </section>
+
     </main>
 
     <footer>
-        <p>&copy; Alxeir. Todos los derechos reservados.</p>
+        <p>
+            ¡Gracias por leer! <br><br>
+            &copy; Alxeir. Todos los derechos reservados.
+        </p>
     </footer>
     <script src="JS/scroll.js"></script>
     <script src="JS/carrusel.js"></script>
+    <script src="JS/navlight.js"></script>
 </body>
 </html>

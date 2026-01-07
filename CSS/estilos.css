@@ -7,6 +7,8 @@ html {
 body { 
     margin: 0; 
     font-family: Arial, sans-serif; 
+    background: #000;          /* o el color oscuro que uses */
+    overflow-x: hidden; 
 }
 
 .curtain-container {
@@ -267,25 +269,36 @@ body {
     overflow: hidden;       
 }
 
-.nav-btn::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;               
-    height: 3px;            
-    background: #ffd700;    
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
 .nav-btn:hover {
     transform: translateY(-3px);
 }
 
-.nav-btn:hover::after {
-    width: 80%;             
+.nav-btn.active {
+    position: relative;
 }
+
+.nav-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 100% !important;
+    height: 5px;
+    background: linear-gradient(90deg, #a10d0d, #b10c0c, #a10d0d); /* ← Dorado BRILLANTE */
+    transform: translateX(-50%);
+    border-radius: 3px;
+    box-shadow: 
+        0 4px 15px rgba(139, 7, 7, 0.8),    /* Glow dorado */
+        0 0 25px rgba(122, 6, 6, 0.6);      /* Halo intenso */
+    border: 1px solid rgba(199, 15, 15, 0.9);
+}
+/* En navbar transparente */
+.navbar.scrolled .nav-btn.active::after {
+    height: 3px;
+    bottom: -3px;
+}
+
+/*Contenido Principal*/
 
 .contenedores{
     min-height: 100vh;  
@@ -758,12 +771,146 @@ body {
 /* Estilos para Footer */
 
 footer {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1.2rem;
     background: #333;
     margin-top: auto;
     color: white;
     text-align: center;
     padding: 1.5rem;
 }
+
+.quien-soy::before {
+    background: rgba(20, 20, 25, 0.95) !important; 
+    backdrop-filter: none !important;              
+    -webkit-backdrop-filter: none !important;
+}
+
+.gustos::before,
+.videojuegos::before,
+.Redes::before
+.proyectos::before {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/*Estilos para Proyectos*/
+
+.proyectos {
+    position: relative;
+    background-image: url('../Images/Proyecto.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    color: white;
+    text-align: center;
+}
+
+.proyectos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 20, 25, 0.85);
+    z-index: 1;
+}
+
+.proyectos > * {
+    position: relative;
+    z-index: 2;
+}
+
+.gato_chambeador {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.gato_chambeador img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gato_chambeador:hover img {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 35px 70px rgba(180,13,21,0.3);
+}
+
+.leyenda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.leyenda p {
+    font-family: "Bodoni Moda", serif;
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 500px;
+}
+
+.boton_git {
+    padding: 18px 45px;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    background: linear-gradient(45deg, #b40d15, #ff4757);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 15px 35px rgba(180,13,21,0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.boton_git::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.boton_git:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(180,13,21,0.6);
+    background: linear-gradient(45deg, #a10712, #ff384e);
+}
+
+.boton_git:hover::before {
+    left: 100%;
+}
+
+.boton_git:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/*Responsive*/
 
 @media (max-width: 768px) {
     .logo-center h1 {
@@ -803,5 +950,330 @@ footer {
     
     .Panel {
         min-width: 100%;
+    }
+}
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+
+    .title-overlay h1 {
+        font-size: 3em;
+    }
+
+    .navbar {
+        padding: 1rem 2rem;
+        gap: 1rem;
+    }
+    
+    .logo-center h1 {
+        font-size: 2.2em;
+        letter-spacing: 3px;
+    }
+    
+    .nav-buttons {
+        gap: 0.3rem;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-btn {
+        padding: 10px 18px;
+        font-size: 1em;
+    }
+    
+    .contenido, .contenido2, .seccion-doble {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+    
+    .panel-item {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .sagas_favoritas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .panel-item{
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Celulares grandes (481px - 767px) */
+@media (max-width: 767px) {
+    html {
+        scroll-padding-top: 80px;
+    }
+    
+    .navbar {
+        padding: 0.8rem 1.5rem !important;
+        flex-direction: column;
+        gap: 0.5rem;
+        height: 25vh !important; 
+    }
+    
+    .logo-center h1 {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+    
+    .logo-imagen {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .logo-Slogan {
+        font-size: 1.2em;
+    }
+    
+    .nav-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: 0.5rem;
+    }
+    
+    .nav-btn {
+        padding: 8px 16px;
+        font-size: 1em;
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    /* Secciones */
+    .contenedores, .quien-soy, .gustos, .videojuegos, .Redes {
+        padding: 2rem 1rem;
+    }
+    
+    .imagen-hover {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
+    }
+    
+    .img-original, .img-hover {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .Panel {
+        min-width: 250px;
+        padding: 1.5rem;
+    }
+    
+    .panel-item {
+        flex-direction: column;
+        padding: 1.5rem;
+        min-height: auto;
+        width: 100%;
+    }
+    
+    .panel-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .sagas_favoritas {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .carousel-slide img {
+        height: 50vh;
+    }
+    
+    .slide-info {
+        bottom: 2rem;
+        padding: 1.5rem 2rem;
+    }
+    
+    .slide-info h3 {
+        font-size: 2em;
+    }
+    
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+    }
+    
+    .prev { left: 1rem; }
+    .next { right: 1rem; }
+}
+
+/* Celulares pequeños (hasta 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem 1rem !important;
+        height: 28vh !important;
+    }
+    
+    .logo-center h1 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+    
+    .logo-imagen {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .nav-btn {
+        padding: 10px 12px;
+        font-size: 0.95em;
+        min-width: 100px;
+    }
+    
+    .Titulos_seccion {
+        font-size: 2em;
+    }
+    
+    .contenido p {
+        font-size: 1.3em;
+    }
+    
+    .Panel {
+        padding: 1rem;
+    }
+    
+    .Panel h3 {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-section h2, .image-dash h2 {
+        font-size: 2.5em;
+    }
+    
+    .carousel-slide img {
+        height: 40vh;
+    }
+    
+    .slide-info h3 {
+        font-size: 1.8em;
+    }
+    
+    .title-overlay h1 {
+        font-size: 2.5em;
+    }
+    
+    .title-overlay button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+}
+
+/* Snow responsive */
+@media (max-width: 767px) {
+    .snow {
+        background-size: 40em;
+        animation-duration: 20s;
+    }
+    
+    .snow2 {
+        background-size: 30em;
+        animation-duration: 25s;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .logo-imagen {
+        display: none !important; 
+    }
+    
+    .logo-center {
+        width: 100%; 
+    }
+    
+    .navbar {
+        align-items: center;
+        padding: 1rem 1.5rem !important;
+    }
+
+    .navbar.scrolled .nav-btn {
+        padding: 8px 16px !important;
+        font-size: 1em !important;
+        min-width: 100px;
+    }
+
+    .panel-item{
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-imagen {
+        display: none !important; 
+    }
+
+    .navbar.scrolled .nav-btn {
+        padding: 4px 12px !important;
+        font-size: 0.7em !important;
+        min-width: 90px;
+    }
+    .panel-item{
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    /* ESPACIO entre secciones */
+    #quien-soy { padding-bottom: 50px; }
+    #gustos { padding-top: 50px; padding-bottom: 50px; }
+    #videojuegos { padding-top: 80px; padding-bottom: 50px; }
+    #redes { padding-top: 50px; }
+    
+    html {
+        scroll-padding-top: 180px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .seccion-doble {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .gato_chambeador img {
+        max-width: 350px;
+    }
+    
+    .leyenda p {
+        font-size: 1.2rem;
+    }
+    
+    .boton_git {
+        padding: 16px 35px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .proyectos {
+        padding: 2rem 1rem;
+    }
+    
+    .gato_chambeador img {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 767px) {
+    #proyectos {
+        padding-top: 80px;  
+        scroll-margin-top: 200px;
+    }
+    
+    html {
+        scroll-padding-top: 220px;  
     }
 }

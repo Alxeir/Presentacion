@@ -26,7 +26,6 @@ window.addEventListener('scroll', () => {
     scrollTimeout = setTimeout(() => {
         const navbar = document.querySelector('.navbar');
         
-        // 🎯 TRIGGER MÁS ALTO + ESTABLE
         if (window.scrollY > 300) {
             navbar.classList.add('scrolled');
         } else {
